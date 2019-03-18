@@ -357,7 +357,14 @@ def practice_problem3b(sequence):
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   8 minutes.
     ###########################################################################
-
+    count = 0
+    for k in range(len(sequence) - 1):
+        if sequence[len(sequence) - 1] == sequence[k]:
+            count = count + 1
+    if count >= 1:
+        return True
+    else:
+        return False
 
 def run_test_practice_problem3c():
     """ Tests the    practice_problem3c    function. """
