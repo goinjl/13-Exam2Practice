@@ -480,14 +480,18 @@ def practice_problem3c(sequence):
       :type: sequence: list    or tuple or string
     """
     ###########################################################################
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #     The testing code is already written for you (above).
     ###########################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   8 minutes.
     ###########################################################################
-
+    n = []
+    for k in range(len(sequence)):
+        if sequence[k] == 0:
+            n = n + [k]
+    return n
 
 def run_test_practice_problem3d():
     """ Tests the    practice_problem3d    function. """
