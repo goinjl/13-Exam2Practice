@@ -6,8 +6,8 @@ This problem provides practice at:
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Jacey.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ###############################################################################
 # Students:
@@ -95,7 +95,7 @@ class Box(object):
           :type volume: int
         """
         # ---------------------------------------------------------------------
-        # TODO: 2. Implement and test this function.
+        # DONE: 2. Implement and test this function.
         #     See the testing code (below) for more examples.
         # ---------------------------------------------------------------------
         # ---------------------------------------------------------------------
@@ -103,6 +103,18 @@ class Box(object):
         #    DIFFICULTY:      3
         #    TIME ESTIMATE:   5 minutes.
         # ---------------------------------------------------------------------
+        if len(contents) <= volume:
+            self.contents = contents
+            self.volume = volume
+            self.original_contents = contents
+            self.original_volume = volume
+
+        elif len(contents) > volume:
+            self.contents = ''
+            self.volume = volume
+            self.original_contents = ''
+            self.original_volume = volume
+        self.history = []
 
     def append_string(self, additional_contents):
         """
@@ -136,7 +148,7 @@ class Box(object):
           :type additional_contents: str
         """
         # ---------------------------------------------------------------------
-        # TODO: 3. Implement and test this function.
+        # DONE: 3. Implement and test this function.
         #     See the testing code (below) for more examples.
         # ---------------------------------------------------------------------
         # ---------------------------------------------------------------------
@@ -158,6 +170,19 @@ class Box(object):
         #       Read_this_ONLY_when_asked_Part_2.txt
         #    and complete your work on the problem.
         # ---------------------------------------------------------------------
+        if self.volume - len(self.contents) < len(additional_contents):
+            space = self.volume - len(self.contents)
+        else:
+            space = len(additional_contents)
+        add_in: ''
+        for k in range(space):
+            add_in = add_in + additional_contents[k]
+        self.contents = self.contents + add_in
+        leftovers = ''
+        if len(additional_contents) != space:
+            for k in range(len(additional_contents) - space):
+                leftovers = leftovers + additional_contents[space + k]
+        return leftovers
 
     def double(self):
         """
